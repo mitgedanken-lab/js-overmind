@@ -13,16 +13,33 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [16.x, 18.x, 20.x, 22.x]
+        deno-version: [2.x, rc, canary]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
+      id: node
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run checkdeps
-    - run: npm test
+    
+    - name: Setup Deno ${{ matrix.deno-version }}
+      uses: denoland/setup-deno@v2
+      id: deno
+      with:
+        deno-version: ${{ matrix.deno-version }}
+        cache: 'deno'    
+    
+    - run: |
+        npm version
+        npm ci
+        npm run lint
+        npm run checkdeps
+        npm test
+    - run: |
+        deno version
+        deno lint
+        deno run --no-npm
