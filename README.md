@@ -1,14 +1,12 @@
-# Overmind
+# Overmind (fork)
 
-Visit website for more information: [www.overmindjs.org](https://overmindjs.org).
-
-## Maintainer needed
-
-<https://gist.github.com/christianalfoni/f1c4bfe320dcb24c403635d9bca3fa40>
+For more information visit its original
+- website [www.overmindjs.org](https://overmindjs.org).
+- repository [cerebral/overmind](https://github.com/cerebral/overmind)
 
 ## Contributing
 
-// List all packages and state how to develop and test them
+<!-- List all packages and state how to develop and test them */ -->
 
 ## Release procedure
 
@@ -22,6 +20,8 @@ git pull
 git merge --ff-only next
 git push
 ```
+
+### VS-Code Extension
 
 To release a new VSCode extension it's necessary to increase the version
 in `packages/overmind-devtools-vscode/package.json`.
