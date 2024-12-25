@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "overmind": "next",
-    "svelte": "^3.59.2",
+    "svelte": "^5.16.0",
 		"tslib": "^2.6.2"
   },
   "devDependencies": {
